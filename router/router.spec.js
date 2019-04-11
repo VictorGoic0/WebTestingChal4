@@ -18,7 +18,9 @@ describe("router.js", () => {
   });
   describe("POST /", () => {
     it("should create and send back a post", async () => {
-      const response = await request(router).post("/");
+      const response = await request(router)
+        .post("/")
+        .send({ username: "user21", description: "description21" });
       expect(response.body.username).toBeTruthy();
     });
   });
