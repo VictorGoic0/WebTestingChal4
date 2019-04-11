@@ -6,11 +6,14 @@ describe("posts model", () => {
     await db("posts").truncate();
   });
   it("should retrieve all posts", async () => {
-    await posts.create({
+    await db("posts").insert({
       username: "username",
       description: "Random description"
     });
-    await posts.create({ username: "username2", description: "description2" });
+    await db("posts").insert({
+      username: "username2",
+      description: "description2"
+    });
     const postlist = await posts.find();
     expect(postlist).toHaveLength(2);
   });
