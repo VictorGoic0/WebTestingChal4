@@ -7,5 +7,9 @@ describe("router.js", () => {
       const response = await request(router).get("/");
       expect(response.status).toBe(200);
     });
+    it("should return json", async () => {
+      const response = await request(router).get("/");
+      expect(response.type).toBe("application/json");
+    });
   });
 });
